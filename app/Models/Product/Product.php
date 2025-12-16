@@ -31,7 +31,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property Shop                 $shop
  * @property Brand                $brand
  * @property Category             $category
- * @property SubCategory          $subCategory
+ * @property Category             $subCategory
  * @property Collection           $collection
  * @property ProductTranslation[] $productTranslations
  * @property SeoElement[]         $seoElements
@@ -73,6 +73,11 @@ class Product extends Model
     public function category() :BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function subCategory() :BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'sub_category_id');
     }
 
     public function collection() :BelongsTo

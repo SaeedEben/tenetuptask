@@ -14,26 +14,28 @@ class BrandSeeder extends Seeder
     public function run() :void
     {
         $brands = [
-            'Gucci', 'Louis Vuitton', 'Prada', 'Chanel', 'Dior', 'Balenciaga', 'Versace',
-            'Burberry', 'Ralph Lauren', 'Tommy Hilfiger', 'Hugo Boss',
-
-            'Nike', 'Adidas', 'Puma', 'Reebok', 'Under Armour', 'Lululemon', 'New Balance',
-            'Skechers', 'Champion',
-
-            'Zara', 'H&M', 'Uniqlo', 'Gap', 'Old Navy', 'Forever 21', 'Mango', 'Levi\'s',
-            'American Eagle', 'Urban Outfitters',
-
-            'Supreme', 'Off-White', 'Stüssy', 'The North Face', 'Patagonia', 'Vans', 'Converse',
-            'Dr. Martens', 'Carhartt WIP',
-
-            'Reformation', 'Everlane', 'Pact',
+            ['id' => Str::uuid(), 'name' => 'Gucci'],
+            ['id' => Str::uuid(), 'name' => 'Louis Vuitton'],
+            ['id' => Str::uuid(), 'name' => 'Prada'],
+            ['id' => Str::uuid(), 'name' => 'Chanel'],
+            ['id' => Str::uuid(), 'name' => 'Dior'],
+            ['id' => Str::uuid(), 'name' => 'Balenciaga'],
+            ['id' => Str::uuid(), 'name' => 'Versace'],
+            ['id' => Str::uuid(), 'name' => 'Burberry'],
+            ['id' => Str::uuid(), 'name' => 'Ralph Lauren'],
+            ['id' => Str::uuid(), 'name' => 'Tommy Hilfiger'],
+            ['id' => Str::uuid(), 'name' => 'Hugo Boss'],
+            ['id' => Str::uuid(), 'name' => 'Nike'],
+            ['id' => Str::uuid(), 'name' => 'Adidas'],
+            ['id' => Str::uuid(), 'name' => 'Puma'],
+            ['id' => Str::uuid(), 'name' => 'Reebok'],
+            ['id' => Str::uuid(), 'name' => 'Under Armour'],
+            ['id' => Str::uuid(), 'name' => 'Lululemon'],
+            ['id' => Str::uuid(), 'name' => 'New Balance'],
+            ['id' => Str::uuid(), 'name' => 'Skechers'],
+            ['id' => Str::uuid(), 'name' => 'Champion'],
         ];
 
-        foreach ($brands as $brand) {
-            Brand::firstOrCreate([
-                'id' => Str::uuid(),
-                'name' => $brand
-            ]);
-        }
+        Brand::query()->insert($brands);
     }
 }

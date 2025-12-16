@@ -35,6 +35,12 @@ return new class extends Migration {
                 ->references('id')
                 ->on('categories')->onDelete('SET NULL');
 
+            $table->uuid('sub_category_id')->nullable();
+            $table->foreign('sub_category_id')
+                ->references('id')
+                ->on('categories')->onDelete('SET NULL');
+
+
             $table->timestamps();
         });
     }
