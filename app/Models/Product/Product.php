@@ -2,7 +2,7 @@
 
 namespace App\Models\Product;
 
-use App\Enum\Product\ProductGender;
+use App\Enum\Product\ProductGenderEnum;
 use App\Models\Shop\Brand;
 use App\Models\Shop\Shop;
 use Carbon\Carbon;
@@ -56,7 +56,7 @@ class Product extends Model
         'sub_category_id', 'collection_id',
     ];
     protected $casts    = [
-        'gender' => ProductGender::class,
+        'gender' => ProductGenderEnum::class,
     ];
 
     // Relations ------------------------------------------------------------------------

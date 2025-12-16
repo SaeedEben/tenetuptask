@@ -69,7 +69,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Languages.php Configuration
+    | Application LanguagesEnum.php Configuration
     |--------------------------------------------------------------------------
     |
     | The application locale determines the default locale that will be used

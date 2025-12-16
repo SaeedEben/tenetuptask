@@ -2,7 +2,7 @@
 
 namespace Database\Factories\Product;
 
-use App\Enum\Language\Languages;
+use App\Enum\Language\LanguagesEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,7 +23,7 @@ class ProductTranslationFactory extends Factory
         ];
     }
 
-    public function locale(Languages $language) :self
+    public function locale(LanguagesEnum $language) :self
     {
         return $this->state(fn() => [
             'locale' => $language->value,

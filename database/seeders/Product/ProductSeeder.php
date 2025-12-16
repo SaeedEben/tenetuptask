@@ -2,12 +2,13 @@
 
 namespace Database\Seeders\Product;
 
-use App\Enum\Language\Languages;
+use App\Enum\Language\LanguagesEnum;
 use App\Models\Product\Category;
 use App\Models\Product\Collection;
 use App\Models\Product\Material;
 use App\Models\Product\Note;
 use App\Models\Product\Product;
+use App\Models\Product\ProductFile;
 use App\Models\Product\ProductTranslation;
 use App\Models\Product\SeoElement;
 use App\Models\Product\Shipping;
@@ -46,7 +47,7 @@ class ProductSeeder extends Seeder
 
                 $product->save();
 
-                foreach (Languages::cases() as $lang) {
+                foreach (LanguagesEnum::cases() as $lang) {
                     ProductTranslation::factory()
                         ->locale($lang)
                         ->create([
@@ -72,6 +73,11 @@ class ProductSeeder extends Seeder
                     ]);
 
                 Shipping::factory()
+                    ->create([
+                        'product_id' => $product->id,
+                    ]);
+
+                ProductFile::factory(10)
                     ->create([
                         'product_id' => $product->id,
                     ]);

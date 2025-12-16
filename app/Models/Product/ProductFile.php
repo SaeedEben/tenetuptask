@@ -46,6 +46,10 @@ class ProductFile extends Model
         'position', 'product_id',
     ];
 
+    protected $casts = [
+        'type' => \App\Enum\Product\ProductFileEnum::class,
+    ];
+
     // Relations ------------------------------------------------------------------------
     public function product() :BelongsTo
     {

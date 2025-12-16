@@ -2,7 +2,7 @@
 
 namespace App\Models\Product;
 
-use App\Enum\Language\Languages;
+use App\Enum\Language\LanguagesEnum;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -45,7 +45,7 @@ class Note extends Model
     ];
 
     protected $casts = [
-        'locale' => Languages::class,
+        'locale' => LanguagesEnum::class,
     ];
 
     // Relations ------------------------------------------------------------------------

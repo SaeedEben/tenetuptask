@@ -2,7 +2,7 @@
 
 namespace App\Enum\Language;
 
-enum Languages: string
+enum LanguagesEnum: string
 {
     case Arabic = 'arabic';
     case English = 'english';

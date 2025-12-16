@@ -2,12 +2,11 @@
 
 namespace App\Enum\Product;
 
-enum ProductGender: string
+enum ShippingBoxEnum: string
 {
-    case MALE = 'male';
-    case FEMALE = 'female';
-    case OTHER = 'other';
-
+    case small = 'Small';
+    case medium = 'Medium';
+    case large = 'Large';
 
     public static function values() :array
     {

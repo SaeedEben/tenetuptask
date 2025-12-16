@@ -2,7 +2,7 @@
 
 namespace Database\Factories\Product;
 
-use App\Enum\Product\ProductGender;
+use App\Enum\Product\ProductGenderEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,7 +20,7 @@ class ProductFactory extends Factory
         return [
             'id'     => $this->faker->uuid(),
             'code'   => $this->faker->postcode(),
-            'gender' => $this->faker->randomElement(ProductGender::values()),
+            'gender' => $this->faker->randomElement(ProductGenderEnum::values()),
 
             'shop_id'         => null,
             'brand_id'        => null,
