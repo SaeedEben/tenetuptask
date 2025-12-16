@@ -2,6 +2,7 @@
 
 namespace Database\Factories\Product;
 
+use App\Enum\Language\Languages;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,18 @@ class ProductTranslationFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition() :array
     {
         return [
-            //
+            'id'   => $this->faker->uuid(),
+            'name' => $this->faker->name(),
         ];
+    }
+
+    public function locale(Languages $language) :self
+    {
+        return $this->state(fn() => [
+            'locale' => $language->value,
+        ]);
     }
 }

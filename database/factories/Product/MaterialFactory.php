@@ -2,6 +2,7 @@
 
 namespace Database\Factories\Product;
 
+use App\Models\Product\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,15 @@ class MaterialFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition() :array
     {
+        $categories = Category::pluck('id')->toArray();
         return [
-            //
+            'id'          => $this->faker->uuid(),
+            'surface'     => $this->faker->word(),
+            'composition' => $this->faker->word(),
+            'percentage'  => $this->faker->randomFloat(2, 0, 100),
+            'category_id' => $this->faker->randomElement($categories),
         ];
     }
 }

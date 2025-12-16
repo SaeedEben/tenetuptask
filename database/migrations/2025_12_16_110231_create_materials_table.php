@@ -14,9 +14,14 @@ return new class extends Migration {
             $table->uuid('id')->primary();
 
             $table->string('surface');
-            $table->string('category');
             $table->string('composition');
             $table->float('percentage');
+
+            $table->uuid('category_id');
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->cascadeOnDelete();
 
             $table->uuid('product_id');
             $table->foreign('product_id')
@@ -25,8 +30,6 @@ return new class extends Migration {
                 ->cascadeOnDelete();
 
             $table->timestamps();
-
-            $table->unique(['product_id', 'surface']);
         });
     }
 
