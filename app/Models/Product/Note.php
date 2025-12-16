@@ -2,6 +2,7 @@
 
 namespace App\Models\Product;
 
+use App\Enum\Language\Languages;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -41,6 +42,10 @@ class Note extends Model
         'locale', 'product_detail',
         'outfit_guideline', 'fit_details',
         'size_details', 'product_id',
+    ];
+
+    protected $casts = [
+        'locale' => Languages::class,
     ];
 
     // Relations ------------------------------------------------------------------------

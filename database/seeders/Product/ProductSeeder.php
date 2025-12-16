@@ -10,6 +10,7 @@ use App\Models\Product\Note;
 use App\Models\Product\Product;
 use App\Models\Product\ProductTranslation;
 use App\Models\Product\SeoElement;
+use App\Models\Product\Shipping;
 use App\Models\Shop\Brand;
 use App\Models\Shop\Shop;
 use Illuminate\Database\Seeder;
@@ -66,6 +67,11 @@ class ProductSeeder extends Seeder
                 }
 
                 Material::factory()
+                    ->create([
+                        'product_id' => $product->id,
+                    ]);
+
+                Shipping::factory()
                     ->create([
                         'product_id' => $product->id,
                     ]);

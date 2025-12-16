@@ -2,6 +2,7 @@
 
 namespace App\Models\Product;
 
+use App\Enum\Product\ShippingBox;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -43,6 +44,7 @@ class Shipping extends Model
 
 
     protected $casts = [
+        'box'                                   => ShippingBox::class,
         'has_cites_Permit'                      => 'boolean',
         'has_fad_medical_device_classification' => 'boolean',
         'has_dangerous_good_classification'     => 'boolean',
