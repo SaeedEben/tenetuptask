@@ -4,16 +4,22 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
 /**
- * @property string $id
+ * @property string      $id
  *
- * @property
+ * @property string      $name
+ * @property string      $email
+ * @property-read string $password
  *
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property Carbon      $email_verified_at
+ *
+ * @property Carbon      $created_at
+ * @property Carbon      $updated_at
  * -------------------------------------- Relations
  *
  * -------------------------------------- Attributes
@@ -22,7 +28,10 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasUuids;
+
+    protected $primaryKey   = 'string';
+    public    $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -50,11 +59,11 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
+    protected function casts() :array
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password'          => 'hashed',
         ];
     }
 

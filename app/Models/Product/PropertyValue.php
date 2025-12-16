@@ -3,6 +3,7 @@
 namespace App\Models\Product;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,7 +22,10 @@ use Illuminate\Database\Eloquent\Model;
 class PropertyValue extends Model
 {
     /** @use HasFactory<\Database\Factories\Product\PropertyValueFactory> */
-    use HasFactory;
+    use HasFactory, HasUuids;
+
+    protected $primaryKey   = 'string';
+    public    $incrementing = false;
 
     // Relations ------------------------------------------------------------------------
     // Attributes ------------------------------------------------------------------------
