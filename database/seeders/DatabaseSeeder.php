@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Database\Seeders\Boutique\BoutiquesSeeder;
-use Database\Seeders\Boutique\BrandSeeder;
+use Database\Seeders\Shop\ShopsSeeder;
+use Database\Seeders\Shop\BrandSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            BoutiquesSeeder::class,
+            ShopsSeeder::class,
             BrandSeeder::class,
         ]);
     }

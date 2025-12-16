@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Boutique;
+namespace App\Models\Shop;
 
 use App\Models\Product\Product;
 use Carbon\Carbon;
@@ -22,9 +22,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * -------------------------------------- Attributes
  *
  */
-class Brand extends Model
+class Shop extends Model
 {
-    /** @use HasFactory<\Database\Factories\Boutique\BrandFactory> */
+    /** @use HasFactory<\Database\Factories\Shop\ShopFactory> */
     use HasFactory, HasUuids;
 
     protected $keyType      = 'string';
@@ -35,8 +35,9 @@ class Brand extends Model
     // Relations ------------------------------------------------------------------------
     public function products() :HasMany
     {
-        return $this->hasMany(Product::class, 'brand_id');
+        return $this->hasMany(Product::class);
     }
+
 
     // Attributes ------------------------------------------------------------------------
     // Scopes ------------------------------------------------------------------------

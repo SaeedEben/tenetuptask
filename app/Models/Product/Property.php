@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property string $id
  *
- * @property
+ * @property string $name
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -26,6 +26,8 @@ class Property extends Model
 
     protected $keyType   = 'string';
     public    $incrementing = false;
+
+    protected $fillable = ['name'];
 
 
     // Relations ------------------------------------------------------------------------

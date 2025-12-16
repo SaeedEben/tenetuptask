@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Factories\Product;
+namespace Database\Factories\Shop;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product\VariantFeature>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Shop\Shop>
  */
-class VariantFeatureFactory extends Factory
+class ShopFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,8 @@ class VariantFeatureFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => $this->faker->uuid,
+            'name' => $this->faker->name(),
         ];
     }
 }

@@ -3,8 +3,8 @@
 namespace App\Models\Product;
 
 use App\Enum\Product\ProductGender;
-use App\Models\Boutique\Boutique;
-use App\Models\Boutique\Brand;
+use App\Models\Shop\Brand;
+use App\Models\Shop\Shop;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -28,7 +28,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property Carbon               $created_at
  * @property Carbon               $updated_at
  * -------------------------------------- Relations
- * @property Boutique             $boutique
+ * @property Shop                 $shop
  * @property Brand                $brand
  * @property Category             $category
  * @property SubCategory          $subCategory
@@ -60,9 +60,9 @@ class Product extends Model
     ];
 
     // Relations ------------------------------------------------------------------------
-    public function boutique() :BelongsTo
+    public function shop() :BelongsTo
     {
-        return $this->belongsTo(Boutique::class, 'boutique_id');
+        return $this->belongsTo(Shop::class, 'shop_id');
     }
 
     public function brand() :BelongsTo

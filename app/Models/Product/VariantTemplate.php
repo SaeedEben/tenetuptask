@@ -19,9 +19,9 @@ use Illuminate\Database\Eloquent\Model;
  * -------------------------------------- Attributes
  *
  */
-class VariantFeature extends Model
+class VariantTemplate extends Model
 {
-    /** @use HasFactory<\Database\Factories\Product\VariantFeatureFactory> */
+    /** @use HasFactory<\Database\Factories\Product\VariantTemplateFactory> */
     use HasFactory, HasUuids;
 
     protected $keyType   = 'string';

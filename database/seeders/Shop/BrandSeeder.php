@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Seeders\Boutique;
+namespace Database\Seeders\Shop;
 
-use App\Models\Boutique\Brand;
+use App\Models\Shop\Brand;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
