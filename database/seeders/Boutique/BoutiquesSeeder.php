@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Boutique;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Boutique\Boutique;
 use Illuminate\Database\Seeder;
 
 class BoutiquesSeeder extends Seeder
@@ -12,6 +12,6 @@ class BoutiquesSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Boutique::factory()->count(200)->create();
     }
 }

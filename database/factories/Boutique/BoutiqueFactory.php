@@ -5,9 +5,9 @@ namespace Database\Factories\Boutique;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Boutique\Boutiques>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Boutique\Boutique>
  */
-class BoutiquesFactory extends Factory
+class BoutiqueFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,8 @@ class BoutiquesFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => $this->faker->uuid,
+            'name' => $this->faker->name(),
         ];
     }
 }
