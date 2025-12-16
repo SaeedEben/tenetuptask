@@ -10,15 +10,21 @@ return new class extends Migration {
      */
     public function up() :void
     {
-        Schema::create('sub_categories', function (Blueprint $table) {
+        Schema::create('variant_features', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name')->unique();
-            $table->uuid('category_id');
-            $table->foreign('category_id')
+
+            $table->uuid('variant_id');
+            $table->foreign('variant_id')
                 ->references('id')
-                ->on('categories')
+                ->on('variants')
                 ->cascadeOnDelete();
+
+            $table->string('name');
+            $table->string('value');
+
             $table->timestamps();
+
+            $table->index(['variant_id', 'name']);
         });
     }
 
@@ -27,6 +33,6 @@ return new class extends Migration {
      */
     public function down() :void
     {
-        Schema::dropIfExists('sub_categories');
+        Schema::dropIfExists('variant_features');
     }
 };

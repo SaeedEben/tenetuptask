@@ -10,15 +10,21 @@ return new class extends Migration {
      */
     public function up() :void
     {
-        Schema::create('sub_categories', function (Blueprint $table) {
+        Schema::create('product_translations', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name')->unique();
-            $table->uuid('category_id');
-            $table->foreign('category_id')
+
+            $table->string('locale')->index();
+            $table->string('name');
+
+            $table->uuid('product_id');
+            $table->foreign('product_id')
                 ->references('id')
-                ->on('categories')
+                ->on('products')
                 ->cascadeOnDelete();
+
             $table->timestamps();
+
+            $table->unique(['product_id', 'locale']);
         });
     }
 
@@ -27,6 +33,6 @@ return new class extends Migration {
      */
     public function down() :void
     {
-        Schema::dropIfExists('sub_categories');
+        Schema::dropIfExists('product_translations');
     }
 };

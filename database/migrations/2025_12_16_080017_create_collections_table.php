@@ -10,14 +10,9 @@ return new class extends Migration {
      */
     public function up() :void
     {
-        Schema::create('sub_categories', function (Blueprint $table) {
+        Schema::create('collections', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name')->unique();
-            $table->uuid('category_id');
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->cascadeOnDelete();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +22,6 @@ return new class extends Migration {
      */
     public function down() :void
     {
-        Schema::dropIfExists('sub_categories');
+        Schema::dropIfExists('collections');
     }
 };
