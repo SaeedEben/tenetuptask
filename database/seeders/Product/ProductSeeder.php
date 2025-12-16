@@ -10,6 +10,7 @@ use App\Models\Product\Note;
 use App\Models\Product\Product;
 use App\Models\Product\ProductFile;
 use App\Models\Product\ProductTranslation;
+use App\Models\Product\PropertyValue;
 use App\Models\Product\SeoElement;
 use App\Models\Product\Shipping;
 use App\Models\Shop\Brand;
@@ -29,6 +30,9 @@ class ProductSeeder extends Seeder
         $categories    = Category::query()->whereNull('parent_id')->pluck('id');
         $subCategories = Category::query()->whereNotNull('parent_id')->pluck('id');
 
+        $propertyValuesByProperty = PropertyValue::all()
+            ->groupBy('property_id');
+
         Product::factory()
             ->count(100)
             ->make()
@@ -37,7 +41,8 @@ class ProductSeeder extends Seeder
                 $brands,
                 $collections,
                 $categories,
-                $subCategories
+                $subCategories,
+                $propertyValuesByProperty
             ) {
                 $product->shop_id         = $shops->random();
                 $product->brand_id        = $brands->random();
@@ -81,6 +86,14 @@ class ProductSeeder extends Seeder
                     ->create([
                         'product_id' => $product->id,
                     ]);
+
+                $propertyValueIds = [];
+
+                foreach ($propertyValuesByProperty as $values) {
+                    $propertyValueIds[] = $values->random()->id;
+                }
+
+                $product->propertyValues()->attach($propertyValueIds);
             });
     }
 }

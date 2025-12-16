@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -113,6 +114,11 @@ class Product extends Model
     public function shipping() :HasOne
     {
         return $this->hasOne(Shipping::class);
+    }
+
+    public function propertyValues() :BelongsToMany
+    {
+        return $this->belongsToMany(PropertyValue::class, 'product_property_value');
     }
 
     // Attributes ------------------------------------------------------------------------

@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->uuid('id')->primary();
 
             $table->string('sku')->unique();
-            $table->string('price');
+            $table->decimal('price', 10);
             $table->integer('stock')->default(0);
 
             $table->uuid('product_id');

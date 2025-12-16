@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Database\Seeders\Product\CategorySeeder;
 use Database\Seeders\Product\CollectionSeeder;
 use Database\Seeders\Product\ProductSeeder;
+use Database\Seeders\Product\PropertySeeder;
+use Database\Seeders\Product\PropertyValueSeeder;
 use Database\Seeders\Shop\BrandSeeder;
 use Database\Seeders\Shop\ShopsSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -24,6 +26,8 @@ class DatabaseSeeder extends Seeder
             BrandSeeder::class,
             CategorySeeder::class,
             CollectionSeeder::class,
+            PropertySeeder::class,
+            PropertyValueSeeder::class,
             ProductSeeder::class,
         ]);
     }
