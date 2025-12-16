@@ -26,7 +26,7 @@ class Boutique extends Model
     /** @use HasFactory<\Database\Factories\Boutique\BoutiqueFactory> */
     use HasFactory, HasUuids;
 
-    protected $primaryKey = 'string';
+    protected $keyType = 'string';
     public $incrementing = false;
 
     // Relations ------------------------------------------------------------------------

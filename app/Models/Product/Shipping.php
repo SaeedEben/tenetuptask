@@ -24,7 +24,7 @@ class Shipping extends Model
     /** @use HasFactory<\Database\Factories\Product\ShippingFactory> */
     use HasFactory, HasUuids;
 
-    protected $primaryKey   = 'string';
+    protected $keyType   = 'string';
     public    $incrementing = false;
 
     // Relations ------------------------------------------------------------------------

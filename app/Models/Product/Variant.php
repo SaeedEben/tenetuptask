@@ -24,7 +24,7 @@ class Variant extends Model
     /** @use HasFactory<\Database\Factories\Product\VariantFactory> */
     use HasFactory, HasUuids;
 
-    protected $primaryKey   = 'string';
+    protected $keyType   = 'string';
     public    $incrementing = false;
 
     // Relations ------------------------------------------------------------------------

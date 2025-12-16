@@ -24,7 +24,7 @@ class Note extends Model
     /** @use HasFactory<\Database\Factories\Product\NoteFactory> */
     use HasFactory, HasUuids;
 
-    protected $primaryKey   = 'string';
+    protected $keyType   = 'string';
     public    $incrementing = false;
 
     // Relations ------------------------------------------------------------------------

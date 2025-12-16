@@ -30,7 +30,7 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasUuids;
 
-    protected $primaryKey   = 'string';
+    protected $keyType   = 'string';
     public    $incrementing = false;
 
     /**

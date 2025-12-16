@@ -24,7 +24,7 @@ class ProductFile extends Model
     /** @use HasFactory<\Database\Factories\Product\ProductFileFactory> */
     use HasFactory, HasUuids;
 
-    protected $primaryKey   = 'string';
+    protected $keyType   = 'string';
     public    $incrementing = false;
 
 

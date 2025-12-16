@@ -24,7 +24,7 @@ class Property extends Model
     /** @use HasFactory<\Database\Factories\Product\PropertyFactory> */
     use HasFactory, HasUuids;
 
-    protected $primaryKey   = 'string';
+    protected $keyType   = 'string';
     public    $incrementing = false;
 
 

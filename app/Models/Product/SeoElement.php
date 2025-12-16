@@ -24,7 +24,7 @@ class SeoElement extends Model
     /** @use HasFactory<\Database\Factories\Product\SeoElementFactory> */
     use HasFactory, HasUuids;
 
-    protected $primaryKey   = 'string';
+    protected $keyType   = 'string';
     public    $incrementing = false;
 
     // Relations ------------------------------------------------------------------------
