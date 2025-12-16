@@ -12,7 +12,14 @@ return new class extends Migration {
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name')->unique();
+            $table->string('name');
+
+            $table->uuid('parent_id')->nullable();
+            $table->foreign('parent_id')
+                ->references('id')
+                ->on('categories')
+                ->cascadeOnDelete();
+
             $table->timestamps();
         });
     }

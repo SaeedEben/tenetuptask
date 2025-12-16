@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Database\Seeders\Shop\ShopsSeeder;
+use Database\Seeders\Product\CategorySeeder;
 use Database\Seeders\Shop\BrandSeeder;
+use Database\Seeders\Shop\ShopsSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,11 +15,12 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
+    public function run() :void
     {
         $this->call([
             ShopsSeeder::class,
             BrandSeeder::class,
+            CategorySeeder::class,
         ]);
     }
 }

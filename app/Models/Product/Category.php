@@ -9,15 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property string      $id
+ * @property string    $id
  *
- * @property string      $name
+ * @property string    $name
  *
- * @property Carbon      $created_at
- * @property Carbon      $updated_at
+ * @property Carbon    $created_at
+ * @property Carbon    $updated_at
  * -------------------------------------- Relations
- * @property SubCategory $subCategories
- * @property Product[]   $products
+ * @property Product[] $products
  *
  * -------------------------------------- Attributes
  *
@@ -33,10 +32,6 @@ class Category extends Model
     protected $fillable = ['name'];
 
     // Relations ------------------------------------------------------------------------
-    public function subCategories() :HasMany
-    {
-        return $this->hasMany(SubCategory::class, 'category_id');
-    }
 
     public function products() :HasMany
     {

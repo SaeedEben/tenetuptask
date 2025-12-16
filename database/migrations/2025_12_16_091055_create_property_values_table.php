@@ -13,23 +13,24 @@ return new class extends Migration {
         Schema::create('property_values', function (Blueprint $table) {
             $table->uuid('id')->primary();
 
+            $table->string('value');
+
             $table->uuid('property_id');
             $table->foreign('property_id')
                 ->references('id')
                 ->on('properties')
                 ->cascadeOnDelete();
 
-            $table->string('value');
             $table->timestamps();
 
             $table->unique(['property_id', 'value']);
         });
 
-        Schema::create('variant_property_value', function (Blueprint $table) {
-            $table->uuid('variant_id');
-            $table->foreign('variant_id')
+        Schema::create('product_property_value', function (Blueprint $table) {
+            $table->uuid('product_id');
+            $table->foreign('product_id')
                 ->references('id')
-                ->on('variants')
+                ->on('products')
                 ->cascadeOnDelete();
 
             $table->uuid('property_value_id');
@@ -38,7 +39,7 @@ return new class extends Migration {
                 ->on('property_values')
                 ->cascadeOnDelete();
 
-            $table->unique(['variant_id', 'property_value_id']);
+            $table->unique(['product_id', 'property_value_id']);
 
         });
     }

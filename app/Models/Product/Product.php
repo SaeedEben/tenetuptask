@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string               $gender
  * @property string               $code
  *
- * @property string               $boutique_id
+ * @property string               $shop_id
  * @property string               $brand_id
  * @property string               $category_id
  * @property string               $sub_category_id
@@ -51,7 +51,7 @@ class Product extends Model
     public    $incrementing = false;
 
     protected $fillable = [
-        'gender', 'code', 'boutique_id',
+        'gender', 'code', 'shop_id',
         'brand_id', 'category_id',
         'sub_category_id', 'collection_id',
     ];
@@ -73,11 +73,6 @@ class Product extends Model
     public function category() :BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id');
-    }
-
-    public function subCategory() :BelongsTo
-    {
-        return $this->belongsTo(SubCategory::class, 'sub_category_id');
     }
 
     public function collection() :BelongsTo

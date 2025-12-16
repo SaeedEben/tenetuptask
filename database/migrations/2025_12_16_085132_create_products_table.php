@@ -15,10 +15,10 @@ return new class extends Migration {
             $table->string('gender')->default(\App\Enum\Product\ProductGender::OTHER);
             $table->string('code');
 
-            $table->uuid('boutique_id')->nullable();
-            $table->foreign('boutique_id')
+            $table->uuid('shop_id')->nullable();
+            $table->foreign('shop_id')
                 ->references('id')
-                ->on('boutiques')->onDelete('SET NULL');
+                ->on('shops')->onDelete('SET NULL');
 
             $table->uuid('brand_id')->nullable();
             $table->foreign('brand_id')
@@ -34,12 +34,6 @@ return new class extends Migration {
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')->onDelete('SET NULL');
-
-            $table->uuid('sub_category_id')->nullable();
-            $table->foreign('sub_category_id')
-                ->references('id')
-                ->on('sub_categories')->onDelete('SET NULL');
-
 
             $table->timestamps();
         });
