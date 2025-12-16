@@ -50,7 +50,12 @@ class Product extends Model
     protected $keyType      = 'string';
     public    $incrementing = false;
 
-    protected $casts = [
+    protected $fillable = [
+        'gender', 'code', 'boutique_id',
+        'brand_id', 'category_id',
+        'sub_category_id', 'collection_id',
+    ];
+    protected $casts    = [
         'gender' => ProductGender::class,
     ];
 

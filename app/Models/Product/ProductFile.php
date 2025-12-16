@@ -40,6 +40,12 @@ class ProductFile extends Model
     public    $incrementing = false;
 
 
+    protected $fillable = [
+        'path', 'type',
+        'size', 'extension', 'alt',
+        'position', 'product_id',
+    ];
+
     // Relations ------------------------------------------------------------------------
     public function product() :BelongsTo
     {

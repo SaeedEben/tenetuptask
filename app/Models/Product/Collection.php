@@ -29,6 +29,7 @@ class Collection extends Model
     protected $keyType      = 'string';
     public    $incrementing = false;
 
+    protected $fillable = ['name'];
 
     // Relations ------------------------------------------------------------------------
     public function products() :HasMany

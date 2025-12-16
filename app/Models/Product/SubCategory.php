@@ -32,6 +32,8 @@ class SubCategory extends Model
     protected $keyType      = 'string';
     public    $incrementing = false;
 
+    protected $fillable = ['name', 'category_id'];
+
     // Relations ------------------------------------------------------------------------
     public function category() :BelongsTo
     {

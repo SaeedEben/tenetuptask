@@ -33,6 +33,7 @@ class ProductTranslation extends Model
     protected $keyType      = 'string';
     public    $incrementing = false;
 
+    protected $fillable = ['locale', 'name', 'product_id'];
 
     protected $casts = [
         'locale' => Languages::class,

@@ -36,6 +36,13 @@ class Note extends Model
     protected $keyType      = 'string';
     public    $incrementing = false;
 
+
+    protected $fillable = [
+        'locale', 'product_detail',
+        'outfit_guideline', 'fit_details',
+        'size_details', 'product_id',
+    ];
+
     // Relations ------------------------------------------------------------------------
     public function product() :BelongsTo
     {

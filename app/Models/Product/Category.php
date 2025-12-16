@@ -30,6 +30,7 @@ class Category extends Model
     protected $keyType      = 'string';
     public    $incrementing = false;
 
+    protected $fillable = ['name'];
 
     // Relations ------------------------------------------------------------------------
     public function subCategories() :HasMany

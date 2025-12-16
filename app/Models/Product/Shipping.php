@@ -35,6 +35,19 @@ class Shipping extends Model
     protected $keyType      = 'string';
     public    $incrementing = false;
 
+    protected $fillable = [
+        'box', 'product_id', 'has_cites_Permit',
+        'has_fad_medical_device_classification',
+        'has_dangerous_good_classification',
+    ];
+
+
+    protected $casts = [
+        'has_cites_Permit'                      => 'boolean',
+        'has_fad_medical_device_classification' => 'boolean',
+        'has_dangerous_good_classification'     => 'boolean',
+    ];
+
     // Relations ------------------------------------------------------------------------
     public function product() :BelongsTo
     {

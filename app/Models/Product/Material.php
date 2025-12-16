@@ -35,6 +35,12 @@ class Material extends Model
     protected $keyType      = 'string';
     public    $incrementing = false;
 
+    protected $fillable = [
+        'surface', 'category', 'composition',
+        'percentage', 'product_id',
+    ];
+
+
     // Relations ------------------------------------------------------------------------
     public function product() :BelongsTo
     {

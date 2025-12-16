@@ -33,6 +33,8 @@ class SeoElement extends Model
     protected $keyType      = 'string';
     public    $incrementing = false;
 
+    protected $fillable = ['locale', 'title', 'description'];
+
     // Relations ------------------------------------------------------------------------
     public function product() :BelongsTo
     {
