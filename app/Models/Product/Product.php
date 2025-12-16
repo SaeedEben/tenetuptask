@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * @property string               $id
@@ -33,6 +34,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property SubCategory          $subCategory
  * @property Collection           $collection
  * @property ProductTranslation[] $productTranslations
+ * @property SeoElement[]         $seoElements
+ * @property Note[]               $notes
+ * @property ProductFile[]        $productFiles
+ * @property Shipping             $shipping
  *
  * -------------------------------------- Attributes
  *
@@ -77,7 +82,32 @@ class Product extends Model
 
     public function productTranslations() :HasMany
     {
-        return $this->hasMany(ProductTranslation::class, 'product_id');
+        return $this->hasMany(ProductTranslation::class);
+    }
+
+    public function seoElements() :HasMany
+    {
+        return $this->hasMany(SeoElement::class);
+    }
+
+    public function materials() :HasMany
+    {
+        return $this->hasMany(Material::class);
+    }
+
+    public function notes() :HasMany
+    {
+        return $this->hasMany(Note::class);
+    }
+
+    public function productFiles() :HasMany
+    {
+        return $this->hasMany(ProductFile::class);
+    }
+
+    public function shipping() :HasOne
+    {
+        return $this->hasOne(Shipping::class);
     }
 
     // Attributes ------------------------------------------------------------------------
@@ -88,6 +118,16 @@ class Product extends Model
         /** @var ProductTranslation $translation */
         $translation = $this->productTranslations()->where('locale', $locale)->first();
         return $translation?->name;
+    }
+
+    public function getSeoElement($locale) :?SeoElement
+    {
+        /** @var SeoElement $translation */
+        $translation = $this->seoElements()
+            ->where('locale', $locale)
+            ->first();
+
+        return $translation;
     }
 
 }
