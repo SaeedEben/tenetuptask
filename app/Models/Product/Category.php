@@ -9,15 +9,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property string     $id
+ * @property string            $id
  *
- * @property string     $name
+ * @property string            $name
  *
- * @property Carbon     $created_at
- * @property Carbon     $updated_at
+ * @property Carbon            $created_at
+ * @property Carbon            $updated_at
  * -------------------------------------- Relations
- * @property Material[] $materials
- * @property Product[]  $products
+ * @property Material[]        $materials
+ * @property Product[]         $products
+ * @property VariantTemplate[] $variantTemplates
  *
  * -------------------------------------- Attributes
  *
@@ -42,6 +43,11 @@ class Category extends Model
     public function products() :HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function variantTemplates() :HasMany
+    {
+        return $this->hasMany(VariantTemplate::class);
     }
 
     // Attributes ------------------------------------------------------------------------

@@ -7,6 +7,7 @@ use Database\Seeders\Product\CollectionSeeder;
 use Database\Seeders\Product\ProductSeeder;
 use Database\Seeders\Product\PropertySeeder;
 use Database\Seeders\Product\PropertyValueSeeder;
+use Database\Seeders\Product\VariantTemplateSeeder;
 use Database\Seeders\Shop\BrandSeeder;
 use Database\Seeders\Shop\ShopsSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
             PropertySeeder::class,
             PropertyValueSeeder::class,
             ProductSeeder::class,
+            VariantTemplateSeeder::class,
         ]);
     }
 }

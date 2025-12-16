@@ -15,7 +15,7 @@ return new class extends Migration {
 
             $table->string('surface');
             $table->string('composition');
-            $table->float('percentage');
+            $table->decimal('percentage', 5);
 
             $table->uuid('category_id');
             $table->foreign('category_id')

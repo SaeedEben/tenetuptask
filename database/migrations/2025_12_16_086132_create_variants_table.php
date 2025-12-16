@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('sku')->unique();
             $table->decimal('price', 10);
             $table->integer('stock')->default(0);
+            $table->boolean('is_default')->default(false);
 
             $table->uuid('product_id');
             $table->foreign('product_id')

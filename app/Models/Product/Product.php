@@ -38,6 +38,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property SeoElement[]         $seoElements
  * @property Note[]               $notes
  * @property ProductFile[]        $productFiles
+ * @property Variant[]            $variants
  * @property Shipping             $shipping
  *
  * -------------------------------------- Attributes
@@ -109,6 +110,11 @@ class Product extends Model
     public function productFiles() :HasMany
     {
         return $this->hasMany(ProductFile::class);
+    }
+
+    public function variants() :HasMany
+    {
+        return $this->hasMany(Variant::class);
     }
 
     public function shipping() :HasOne
