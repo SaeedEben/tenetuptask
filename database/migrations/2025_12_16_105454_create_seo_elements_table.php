@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('seo_elements', function (Blueprint $table) {
             $table->uuid('id')->primary();
 
-            $table->string('locale')->index();
+            $table->string('locale' , 10);
             $table->string('title');
             $table->text('description');
 

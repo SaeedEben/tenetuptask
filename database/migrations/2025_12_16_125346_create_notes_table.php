@@ -10,11 +10,14 @@ return new class extends Migration {
      */
     public function up() :void
     {
-        Schema::create('product_translations', function (Blueprint $table) {
+        Schema::create('notes', function (Blueprint $table) {
             $table->uuid('id')->primary();
 
             $table->string('locale', 10);
-            $table->string('name');
+            $table->text('product_detail')->nullable();
+            $table->text('outfit_guideline')->nullable();
+            $table->text('fit_details')->nullable();
+            $table->text('size_details')->nullable();
 
             $table->uuid('product_id');
             $table->foreign('product_id')
@@ -24,7 +27,7 @@ return new class extends Migration {
 
             $table->timestamps();
 
-            $table->unique(['product_id', 'locale']);
+            $table->unique(['locale', 'product_id']);
         });
     }
 
@@ -33,6 +36,6 @@ return new class extends Migration {
      */
     public function down() :void
     {
-        Schema::dropIfExists('product_translations');
+        Schema::dropIfExists('notes');
     }
 };
