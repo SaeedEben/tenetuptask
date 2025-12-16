@@ -13,6 +13,7 @@ use App\Models\Product\ProductTranslation;
 use App\Models\Product\PropertyValue;
 use App\Models\Product\SeoElement;
 use App\Models\Product\Shipping;
+use App\Models\Product\Variant;
 use App\Models\Shop\Brand;
 use App\Models\Shop\Shop;
 use Illuminate\Database\Seeder;
@@ -94,6 +95,12 @@ class ProductSeeder extends Seeder
                 }
 
                 $product->propertyValues()->attach($propertyValueIds);
+
+                Variant::factory(5)
+                    ->create([
+                        'product_id' => $product->id,
+                    ]);
+
             });
     }
 }

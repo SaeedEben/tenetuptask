@@ -14,10 +14,14 @@ class VariantFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition() :array
     {
+        $colors = ['red', 'blue', 'black', 'white'];
+        $sizes  = ['sm', 'md', 'lg', 'xlg'];
         return [
-            //
+            'sku'   => $this->faker->lexify('??'). $this->faker->randomNumber() . '-' . $colors[array_rand($colors)] . '-' . $sizes[array_rand($sizes)],
+            'price' => $this->faker->randomFloat(2, 10, 100),
+            'stock' => $this->faker->randomNumber(2),
         ];
     }
 }
