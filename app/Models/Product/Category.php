@@ -17,7 +17,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Carbon      $updated_at
  * -------------------------------------- Relations
  * @property SubCategory $subCategories
- * @property Product     $products
+ * @property Product[]   $products
+ *
  * -------------------------------------- Attributes
  *
  */

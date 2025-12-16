@@ -6,15 +6,17 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property string $id
+ * @property string    $id
  *
- * @property
+ * @property string    $name
  *
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property Carbon    $created_at
+ * @property Carbon    $updated_at
  * -------------------------------------- Relations
+ * @property Product[] $products
  *
  * -------------------------------------- Attributes
  *
@@ -24,11 +26,16 @@ class Collection extends Model
     /** @use HasFactory<\Database\Factories\Product\CollectionFactory> */
     use HasFactory, HasUuids;
 
-    protected $keyType   = 'string';
+    protected $keyType      = 'string';
     public    $incrementing = false;
 
 
     // Relations ------------------------------------------------------------------------
+    public function products() :HasMany
+    {
+        return $this->hasMany(Product::class, 'collection_id');
+    }
+
     // Attributes ------------------------------------------------------------------------
     // Scopes ------------------------------------------------------------------------
     // Methods ------------------------------------------------------------------------

@@ -7,17 +7,19 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property string   $id
+ * @property string    $id
  *
- * @property string   $name
- * @property string   $category_id
+ * @property string    $name
+ * @property string    $category_id
  *
- * @property Carbon   $created_at
- * @property Carbon   $updated_at
+ * @property Carbon    $created_at
+ * @property Carbon    $updated_at
  * -------------------------------------- Relations
- * @property Category $category
+ * @property Category  $category
+ * @property Product[] $products
  *
  * -------------------------------------- Attributes
  *
@@ -34,6 +36,11 @@ class SubCategory extends Model
     public function category() :BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function products() :HasMany
+    {
+        return $this->hasMany(Product::class, 'sub_category_id');
     }
 
     // Attributes ------------------------------------------------------------------------
