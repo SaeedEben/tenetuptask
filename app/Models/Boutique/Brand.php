@@ -2,14 +2,16 @@
 
 namespace App\Models\Boutique;
 
+use App\Models\Product\Product;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property string $id
  *
- * @property
+ * @property string $name
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -24,6 +26,11 @@ class Brand extends Model
     use HasFactory;
 
     // Relations ------------------------------------------------------------------------
+    public function products() :HasMany
+    {
+        return $this->hasMany(Product::class, 'brand_id');
+    }
+
     // Attributes ------------------------------------------------------------------------
     // Scopes ------------------------------------------------------------------------
     // Methods ------------------------------------------------------------------------
